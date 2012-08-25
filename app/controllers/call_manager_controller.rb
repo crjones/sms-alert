@@ -16,7 +16,7 @@ layout 'twiml'
 				r.Sms 'Unknown Command. Use SUB to subscribe or STOP to unsubscribe.'
 			end	
 		else
-			r.Sms "This number is not yet setup. Please go to: #{new_account_path}"
+			r.Sms "This number is not yet setup. Please go to: #{new_account_url}"
 		end
 	end
 
