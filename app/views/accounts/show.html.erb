@@ -19,6 +19,8 @@
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               accounts_path, :class => 'btn'  %>
+  <%= link_to 'Broadcasts',
+              account_broadcasts_path(@account), :class => 'btn'  %>
   <%= link_to 'Subscribers',
               account_subscribers_path(@account), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),

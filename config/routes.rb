@@ -1,4 +1,5 @@
 SmsAlert::Application.routes.draw do
+
   get "call_manager/sms"
 
   get "call_manager/voice"
@@ -7,6 +8,7 @@ SmsAlert::Application.routes.draw do
 
   resources :accounts, :path => 'numbers' do
     resources :subscribers
+    resources :broadcasts
   end
 
   # The priority is based upon order of creation:
