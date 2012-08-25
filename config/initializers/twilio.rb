@@ -1,4 +1,4 @@
-if Gem::Specification::find_by_name('twilio-ruby') && ENV['TWILIO_SID'] && ENV['TWILIO_AUTH']
+if Gem.available?('twilio-ruby') && ENV['TWILIO_SID'] && ENV['TWILIO_AUTH']
 	account_sid = ENV['TWILIO_SID']
 	auth_token = ENV['TWILIO_AUTH']
 
