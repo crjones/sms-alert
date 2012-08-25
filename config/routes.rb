@@ -5,7 +5,7 @@ SmsAlert::Application.routes.draw do
 
   resources :users
 
-  resources :accounts do
+  resources :accounts, :path => 'numbers' do
     resources :subscribers
   end
 

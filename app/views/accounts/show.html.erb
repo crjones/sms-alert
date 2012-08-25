@@ -1,13 +1,15 @@
 <%- model_class = @account.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h1><%= @account.name %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @account.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
   <dd><%= @account.number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:broadcast) %>:</strong></dt>
+  <dd><%= @account.broadcast %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:conference) %>:</strong></dt>
+  <dd><%= @account.conference %></dd>
   <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
   <dd><%= @account.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
@@ -17,6 +19,8 @@
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               accounts_path, :class => 'btn'  %>
+  <%= link_to 'Subscribers',
+              account_subscribers_path(@account), :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_account_path(@account), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
