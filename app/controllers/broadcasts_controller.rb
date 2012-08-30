@@ -3,7 +3,8 @@ class BroadcastsController < ApplicationController
   # GET /broadcasts.json
 
   before_filter :lookup_account
-
+  before_filter :require_user
+  
   def index
     @broadcasts = @account.broadcasts
 
@@ -70,7 +71,7 @@ class BroadcastsController < ApplicationController
 
     respond_to do |format|
       if @broadcast.update_attributes(params[:broadcast])
-        format.html { redirect_to @broadcast, notice: 'Broadcast was successfully updated.' }
+        format.html { redirect_to account_broadcasts_path(@account), notice: 'Broadcast was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

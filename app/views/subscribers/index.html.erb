@@ -1,28 +1,24 @@
 <%- model_class = Subscriber.new.class -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1><%= @account.name %> <%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:optin) %></th>
-      <th><%= model_class.human_attribute_name(:account_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><center>Opt-in</center></th>
+      <th>Subscribed</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @subscribers.each do |subscriber| %>
       <tr>
-        <td><%= link_to subscriber.id, account_subscriber_path(@account, subscriber) %></td>
-        <td><%= subscriber.number %></td>
+        <td><%= number_to_phone(subscriber.number) %></td>
         <td><%= subscriber.name %></td>
-        <td><%= subscriber.optin %></td>
-        <td><%= subscriber.account_id %></td>
-        <td><%=l subscriber.created_at %></td>
+        <td><center><% if subscriber.optin %><i class="icon-ok" style="color:green;"></i><% end %></center></td>
+        <td><%= time_ago_in_words(subscriber.created_at) %> ago</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_account_subscriber_path(@account, subscriber), :class => 'btn btn-mini' %>

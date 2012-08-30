@@ -28,11 +28,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">SMS Alerts</a>
+          <a class="brand" href="/">crjones-twilio</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Numbers", accounts_path  %></li>
+              <li><%= link_to "Phone Numbers", accounts_path  %></li>
               <li><%= link_to "Users", users_path  %></li>
+              <li class="divider-vertical"></li>
+              <% if @account %>
+                <li><%= link_to "Subscribers", account_subscribers_path(@account)  %></li>
+                <li><%= link_to "Broadcasts", account_broadcasts_path(@account)  %></li>
+              <% end %>
+            </ul>
+            <ul class="nav pull-right">
+              <% if current_user %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#"><%= current_user.email %></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <li><%= link_to 'Profile', current_user  %></li>
+                  <li><%= link_to 'Logout', logout_url  %></li>
+                </ul>
+              </li>
+              <% else %>
+              <li><%= link_to "Login", login_path  %></li>
+              <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

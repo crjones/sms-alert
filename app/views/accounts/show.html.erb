@@ -5,7 +5,7 @@
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:number) %>:</strong></dt>
-  <dd><%= @account.number %></dd>
+  <dd><%= number_to_phone(@account.number) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:broadcast) %>:</strong></dt>
   <dd><%= @account.broadcast %></dd>
   <dt><strong><%= model_class.human_attribute_name(:conference) %>:</strong></dt>
