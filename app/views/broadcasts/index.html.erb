@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to broadcast.id, account_broadcast_path(@account, broadcast) %></td>
         <td><%= broadcast.message %></td>
-        <td><%= broadcast.user_id %></td>
+        <td><%= mail_to broadcast.user.try(:email)  %></td>
         <td><%=l broadcast.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

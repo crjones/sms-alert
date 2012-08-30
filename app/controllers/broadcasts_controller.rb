@@ -49,6 +49,7 @@ class BroadcastsController < ApplicationController
     @broadcast = Broadcast.new(params[:broadcast])
 
     @broadcast.account = @account
+    @broadcast.user = current_user
 
     respond_to do |format|
       if @broadcast.save
