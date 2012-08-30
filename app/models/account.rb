@@ -4,6 +4,7 @@ class Account < ActiveRecord::Base
 	has_many :subscribers
 	has_many :broadcasts
 
+	default_scope :order => 'created_at DESC'
 	scope :active, where(active: true)
 	scope :broadcast, where(broadcast: true)
 	scope :conference, where(conference: true)
