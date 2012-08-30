@@ -44,7 +44,7 @@
               </li>
               <% end %>
               <li class="divider-vertical"></li>
-              <% if @account %>
+              <% if @account.try(:id) %>
                 <li>
                   <%= link_to account_subscribers_path(@account) do %>
                     <i class="icon-phone"></i> Subscribers

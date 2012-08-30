@@ -2,7 +2,7 @@ class Broadcast < ActiveRecord::Base
 	belongs_to :account
 	belongs_to :user
 
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'created_at ASC'
 
 	def deliver(subscriber)
     @twilio = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_AUTH']
