@@ -31,12 +31,31 @@
           <a class="brand" href="/">crjones-twilio</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Phone Numbers", accounts_path  %></li>
-              <li><%= link_to "Users", users_path  %></li>
+              <li>
+                <%= link_to accounts_path do %>
+                  <i class="icon-cogs"></i> Phone Numbers
+                <% end %>
+              </li>
+              <% if current_user && current_user.admin? %>
+              <li>
+                <%= link_to users_path do %>
+                  <i class="icon-user"></i> Users
+                <% end %>
+              </li>
+              <% end %>
               <li class="divider-vertical"></li>
               <% if @account %>
-                <li><%= link_to "Subscribers", account_subscribers_path(@account)  %></li>
-                <li><%= link_to "Broadcasts", account_broadcasts_path(@account)  %></li>
+                <li>
+                  <%= link_to account_subscribers_path(@account) do %>
+                    <i class="icon-phone"></i> Subscribers
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to account_broadcasts_path(@account) do %>
+                    <i class="icon-comments"></i> Broadcasts
+                  <% end %>
+                </li>
+
               <% end %>
             </ul>
             <ul class="nav pull-right">
